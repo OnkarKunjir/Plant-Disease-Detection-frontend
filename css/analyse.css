@@ -11,11 +11,12 @@
 }
 html{
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 body{
     font-family: 'Poppins', sans-serif;
     background-color: var(--light-grey);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 a{
     display: block;
@@ -26,9 +27,7 @@ a{
 ul{
     list-style: none;
 }
-.only-mobile{
-    visibility: hidden;
-}
+
 /* 
     --------------- Helper class ---------------
 */
@@ -93,74 +92,41 @@ ul{
     color: var(--more-dark-green);
 }
 
-/* 
-    --------------- try-now ---------------
-*/
 
-.try-now{
-    display: flex;
-    height: 90vh;
-    align-items: center;
-    justify-content: space-around;
-    margin: 0rem 9.125rem;
-}
-.filler-image{
-    flex: 1;
-}
-.filler-image img{
-    width: 100%;
-    max-width: 36.375rem;
-}
-.form-section{
-    flex: 1;
-}
-.card{
-    margin: auto;
-    background-color: white;
-    width: 30.75rem;
-    height: 31.25rem;
-    border-radius: 6px;
-    box-shadow: 0.625rem 0.625rem 1.25rem 0.25rem rgba(0, 0, 0, 0.25);
+/*
+    --------------- upload section ---------------
+*/
+main{
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
-.card input{
-    width: 25.688rem;
-    height: 3.75rem;
-    background-color: #CEDAD5;
-    border: none;
-    padding: 0.625rem;
-    font-size: 1.125rem;
-    color: #474747;
-    border-radius: 0.313rem;
+.upload-section{
+    background-color: var(--light-grey);
+    width: 37.688rem;
+    height: 38.375rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0.625rem 0.625rem 1.25rem 0.25rem rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
 }
-.card .button{
-    width: 25.688rem;
-    height: 3.75rem;
-    font-size: 1.25rem;
+.upload-section:hover{
+    scale: 1.05;
 }
-#switch-action{
+.upload-banner img{
+    width: 35.875rem;
+    margin: auto;
+}
+.upload-info-text{
+    text-align: center;
     color: var(--dark-green);
     text-decoration: underline;
-    cursor: pointer;
-}
-
-#ball-1{
-    width: 39.125rem;
-    height: 39.125rem;
-    left: -22rem;
-    bottom: -26rem;
-    z-index: 1;
-}
-
-#ball-2{
-    width: 24.438rem;
-    height: 24.438rem;
-    left: -2rem;
-    bottom: -14rem;
-    z-index: 1;
 }
 
 @media (max-width: 1224px) {
@@ -176,15 +142,18 @@ ul{
     .only-desktop{
         display: none !important;
     }
-}
 
-@media (max-width: 550px){
-    .card{
-        width: 100vw;
-        background-color: var(--light-grey);
+}
+@media (max-width: 650px){
+    .upload-section{
+        margin: auto ;
         box-shadow: none;
+        width: 100%;
     }
-    .only-mobile{
-        visibility: visible;
+    .upload-banner img{
+        width: 100%;
+    }
+    .upload-section:hover{
+        scale: 1;
     }
 }
