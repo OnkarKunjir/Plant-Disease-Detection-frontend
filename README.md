@@ -1,3 +1,4 @@
 # Plant-Disease-Detection-frontend
-fronted for Plant Disease Detection project.
-Live demo : https://onkarkunjir.github.io/Plant-Disease-Detection-frontend/ 
+Simple Flask server to host the application.
+Live demo (static) : https://onkarkunjir.github.io/Plant-Disease-Detection-frontend/ 
+
