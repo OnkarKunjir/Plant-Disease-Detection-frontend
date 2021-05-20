@@ -1,4 +1,4 @@
-api_url = "http://127.0.0.1:5000/api/predict";
+api_url = "http://127.0.0.1:8080/api/predict";
 
 let upload_btn = document.querySelector("#upload-btn");
 document.querySelector(".upload-section").addEventListener("click", ()=>{
