@@ -6,6 +6,23 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const switch_action = document.querySelector("#switch-action");
 const submit_button = document.querySelector("#submit-button");
+
+const toast = document.querySelector(".toast");
+const show_toast = (msg, success, sec) => {
+    toast.innerHTML = msg;
+    toast.classList.remove("deactivate", "success", "failure");
+    toast.classList.add("activate");
+    if(success){
+        toast.classList.add("success");
+    }
+    else{
+        toast.classList.add("failure");
+    }
+    setTimeout(() => {
+        toast.classList.replace("activate", "deactivate");
+    }, 1000*sec);
+};
+
 switch_action.addEventListener("click", () => {
     if(action == "signin"){
         action = "signup";
@@ -21,7 +38,7 @@ switch_action.addEventListener("click", () => {
 
 submit_button.addEventListener("click", () => {
     if((email.value.trim().length == 0) || (password.value.trim().length == 0)){
-        window.alert("Enter email id and password");
+        show_toast("Enter emaill and password", false, 2);
         return;
     }
     const formdata = new FormData();
@@ -46,8 +63,8 @@ submit_button.addEventListener("click", () => {
             }
         }
         else{
-            console.log(data["message"]);
+            show_toast(data["message"], false, 2);
         }
     })
-    .catch(err => console.error(err));
+    .catch(err => show_toast("Something went wrong", false, 2));
 });
