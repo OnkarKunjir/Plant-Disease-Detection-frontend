@@ -31,6 +31,9 @@ ul{
 /* 
     --------------- Helper class ---------------
 */
+.hidden{
+    display: none !important;
+}
 .button-group{
     display: flex;
     flex-direction: row;
@@ -185,6 +188,51 @@ main{
     text-decoration: underline;
 }
 
+
+/*
+    --------------- result section ---------------
+*/
+.result-section{
+    height: 100vh;
+    margin: 2.875rem 9.125rem 0rem 9.125rem;
+}
+.result-section .back-button{
+    width: 100%;
+    font-size: 1.25rem;
+    color: var(--dark-green);
+    text-decoration: underline;
+    text-align: left;
+}
+.result-section .back-button p{
+    cursor: pointer;
+    display: inline;
+    padding: 0.625rem 0.625rem 0.625rem 0px;;
+}
+
+.information{
+    margin-top: 2.875rem;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.row .title{
+    width: 300px;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+.row .description{
+    font-size: 1.125rem;
+    font-weight: 400;
+    flex: 1;
+}
+.back-button p i{
+    transition: transform ease-in-out 0.2s;
+}
+.back-button p:hover i{
+    transform: translateX(-5px);
+}
+
 @media (max-width: 1224px) {
     .logo{
         font-size: 1.25rem;
@@ -197,6 +245,9 @@ main{
     }
     .only-desktop{
         display: none !important;
+    }
+    .result-section{
+        margin: 1.5rem 3.125rem 0rem 3.125rem;
     }
 
 }

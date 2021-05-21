@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, make_response, redirect, url_for
 import requests
-
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 api_url = "http://127.0.0.1:5000/api/"
@@ -35,7 +35,7 @@ def signin():
         token = response.cookies["x-access-token"]
         response = make_response(response.json(), 200)
         response.set_cookie(
-            "x-access-token", token, httponly=True, samesite="Strict", secure=True
+            "x-access-token", token, httponly=True, samesite="Strict", secure=True, expires = datetime.utcnow() + timedelta(minutes=30) 
         )
         return response
     return response.json()
@@ -59,6 +59,13 @@ def predict():
         return response.json()
     return response.json()
 
+@app.route("/logout", methods=["POST"])
+def logout():
+    response = make_response()
+    response.set_cookie(
+        "x-access-token", '', httponly=True, samesite="Strict", secure=True, expires = 0
+    )
+    return response, 200
 
 if __name__ == "__main__":
     app.run(port=8080, debug=True)
