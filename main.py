@@ -31,6 +31,7 @@ def analyse():
 def signin():
     payload = request.form
     response = requests.post(api_url + "signin", payload)
+    print(response.json())
     if response.status_code == 200 and response.json()["status"] == "success":
         token = response.cookies["x-access-token"]
         response = make_response(response.json(), 200)

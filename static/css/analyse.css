@@ -211,10 +211,12 @@ main{
 
 .information{
     margin-top: 2.875rem;
+    
 }
 .row{
     display: flex;
     flex-direction: row;
+    margin-bottom: 1.813rem;
 }
 .row .title{
     width: 300px;

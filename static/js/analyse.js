@@ -22,8 +22,24 @@ const show_toast = (msg, success, sec) => {
 const main_section = document.querySelector("main");
 const result_section = document.querySelector(".result-section");
 const image_preview = document.querySelector(".uploaded-image img");
-const display_result = ()=>{
+
+// result feilds
+const plant_name = document.querySelector("#plant-name");
+const disease_name = document.querySelector("#disease-name");
+const symptoms = document.querySelector("#symptoms");
+const description = document.querySelector("#description");
+const medicine = document.querySelector("#medicine");
+
+
+const display_result = (data)=>{
     // function displays the reuslt..
+    // console.log(data);
+    plant_name.innerHTML = data["plant_name"];
+    disease_name.innerHTML = data["disease_name"];
+    symptoms.innerHTML = data["symptoms"];
+    description.innerHTML = data["description"];
+    medicine.innerHTML = data["medicine"];
+    
     main_section.classList.add("hidden");
     result_section.classList.remove("hidden");
     // let reader = new FileReader();
@@ -57,13 +73,13 @@ upload_btn.addEventListener("change", ()=>{
     .then(response => response.json())
     .then(data => {
         // show data here 
-        console.log(data);
+        // console.log(data);
         if(data["status"] == "failure"){
             show_toast(data["message"], false, 2);
         }
         else{
             show_toast(data["message"], true, 2);
-            display_result();
+            display_result(data["data"]["result"]);
         }
 
     })
